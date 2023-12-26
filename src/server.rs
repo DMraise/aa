@@ -1,4 +1,4 @@
-use tonic::{transaport::Server, Request, Responce, Status};
+use tonic::{transport::Server, Request, Responce, Status};
 
 use example::oxion_server::{Oxion, OxionServer};
 use example::{HelloRequest, HelloResponse};
@@ -15,7 +15,7 @@ impl Oxion for OxionService {
     async fn send_message(
         &self, 
         request: Request<HelloRequest>,
-    ) -> Result<Responce<HelloResponse, Status>>> {
+    ) -> Result<Responce<HelloResponse>, Status>{
         println!("Got a request: {:?}", request);
 
         let req = request.get_inner();
