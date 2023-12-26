@@ -25,5 +25,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("RESPONSE={:?}", response);
     let elapsed = end_time - start_time;
     println!("Время выполнения: {:?}", elapsed);
+
+    let request = tonic::Request::new(
+        HelloRequest {
+            name: "Hfidhifhjsif".to_owned(),
+        }
+    );
+
+    let response = client.send_message(request).await?; 
+    let end_time = Instant::now();
+    println!("RESPONSE={:?}", response);
+    let elapsed = end_time - start_time;
+    println!("Время выполнения: {:?}", elapsed);
     Ok(())
 }
