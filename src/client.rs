@@ -7,7 +7,7 @@ pub mod example {
 
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std:error::Error>> {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut client = OxionClient::connect(
         "http://[::1]:50051"
     ).await?;
@@ -21,6 +21,6 @@ async fn main() -> Result<(), Box<dyn std:error::Error>> {
     let response = client.send_message(request).await?; 
 
     println!("RESPONSE={:?}", response);
-    
+
     Ok(())
 }
