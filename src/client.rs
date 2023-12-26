@@ -9,7 +9,7 @@ pub mod example {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let start_time Instant::now();
+    let start_time = Instant::now();
     let mut client = OxionClient::connect(
         "http://[::1]:50051"
     ).await?;
