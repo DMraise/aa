@@ -15,7 +15,7 @@ impl Oxion for OxionService {
     async fn send_message(
         &self, 
         request: Request<HelloRequest>,
-    ) -> Result<Responce<HelloResponse>, Status>{
+    ) -> Result<Response<HelloResponse>, Status>{
         println!("Got a request: {:?}", request);
 
         let req = request.into_inner();
@@ -24,7 +24,7 @@ impl Oxion for OxionService {
             message: format!("Sent {}", req.name).into(),
         };
 
-        Ok(Responce::new(reply));
+        Ok(Response::new(reply));
     }
 }
 #[tokio::main]
