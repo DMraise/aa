@@ -24,7 +24,7 @@ impl Oxion for OxionService {
             message: format!("Sent {}", req.name).into(),
         };
 
-        Ok(Response::new(reply));
+        Ok(Response::new(reply))
     }
 }
 #[tokio::main]
