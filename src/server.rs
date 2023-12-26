@@ -1,4 +1,4 @@
-use tonic::{transport::Server, Request, Responce, Status};
+use tonic::{transport::Server, Request, Response, Status};
 
 use example::oxion_server::{Oxion, OxionServer};
 use example::{HelloRequest, HelloResponse};
@@ -18,7 +18,7 @@ impl Oxion for OxionService {
     ) -> Result<Responce<HelloResponse>, Status>{
         println!("Got a request: {:?}", request);
 
-        let req = request.get_inner();
+        let req = request.into_inner();
 
         let reply = HelloResponse {
             message: format!("Sent {}", req.name).into(),
